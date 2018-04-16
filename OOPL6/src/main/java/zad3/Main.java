@@ -37,18 +37,16 @@ public class Main {
 
         System.out.println("\nPodaj wartość modułu liczby zespolonej: ");
         double mod = zespolona.wpisz();
-        System.out.println("Podaj wartość konta alfa liczby zespolonej: ");
+        System.out.println("Podaj wartość kąta alfa liczby zespolonej: ");
         double alfa = zespolona.wpisz();
         System.out.print("Podana liczba zespolona to: ");
         System.out.println(mod + " * e^" + alfa + "i");
 
         zespolona.wykladniczaNaAlgebraiczna(alfa, mod);
 
-        System.out.println("Wprowadź dwie liczby zespolone, a następnie wybierz co chcesz z nią zrobić: \n1.Dodawanie\n2.Odejmowanie\n3.Mnożenie\n4.Dzielenie");
+        System.out.println("Wprowadź dwie liczby zespolone w postaci algebraicznej, a następnie wybierzesz co chcesz z nią zrobić");
 
-        int n = we.nextInt();
-
-        System.out.println("Podaj część rzeczywistą pierwszej liczby zespolonej: ");
+        System.out.println("\n\nPodaj część rzeczywistą pierwszej liczby zespolonej: ");
         double r1 = zespolona.wpisz();
         System.out.println("Podaj część urojoną pierwszej liczby zespolonej: ");
         double u1 = zespolona.wpisz();
@@ -62,6 +60,8 @@ public class Main {
         System.out.print("Druga liczba zespolona to: ");
         zespolona.wypisz(r2, u2);
 
+        System.out.println("Wybierz co chcesz z nią zrobić: \n1.Dodawanie\n2.Odejmowanie\n3.Mnożenie\n4.Dzielenie\n");
+        int n = we.nextInt();
         switch (n) {
 
             case 1:
@@ -75,6 +75,36 @@ public class Main {
                 break;
             case 4:
                 zespolona.dzielenieAlgebraiczna(r1, u1, r2, u2);
+                break;
+            default:
+                System.out.println("Wybrano cyfrę spoza przedziału <1,4>");
+        }
+
+        System.out.println("\nWprowadź dwie liczby zespolone w postaci wykladniczej, a następnie wybierzesz co chcesz z nią zrobić");
+
+        System.out.println("Podaj wartość modułu liczby zespolonej: ");
+        double mod1 = zespolona.wpisz();
+        System.out.println("Podaj wartość kąta alfa liczby zespolonej: ");
+        double alfa1 = zespolona.wpisz();
+        System.out.print("Pierwsza liczba zespolona to: ");
+        System.out.println(mod + " * e^" + alfa + "i");
+
+        System.out.println("\n\nPodaj wartość modułu liczby zespolonej: ");
+        double mod2 = zespolona.wpisz();
+        System.out.println("Podaj wartość kąta alfa liczby zespolonej: ");
+        double alfa2 = zespolona.wpisz();
+        System.out.print("Druga liczba zespolona to: ");
+        System.out.println(mod + " * e^" + alfa + "i");
+
+        System.out.println("Wybierz co chcesz z nią zrobić: \n1.Dodawanie\n2.Dzielenie\n");
+        n = we.nextInt();
+        switch (n) {
+
+            case 1:
+                zespolona.dodawanieWykladnicza(mod1, alfa1, mod2, alfa2);
+                break;
+            case 2:
+                zespolona.dzielenieWykladnicza(mod1, alfa1, mod2, alfa2);
                 break;
             default:
                 System.out.println("Wybrano cyfrę spoza przedziału <1,4>");
